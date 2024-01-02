@@ -1,0 +1,8 @@
+.task-tabs{
+    display:flex;
+
+}
+
+.task-tabs div{
+    padding: 1em
+}
