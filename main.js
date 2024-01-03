@@ -7,3 +7,14 @@
 // 3. false이면 안끝난걸로 간주하고 그대로 보여주기
 //Done, Not Done 탭을 누르면, 언더바가 이동한다
 //Done은, Done 아이템만, Not Done탭은 Not Done 아이템만
+
+
+let inputBox = document.getElementById("input-box");
+let addButton= document.getElementById("add-button");
+
+
+addButton.addEventListener("click",addTask);
+
+function addTask(){
+console.log("clicked")
+}
