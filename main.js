@@ -11,10 +11,37 @@
 
 let inputBox = document.getElementById("input-box");
 let addButton= document.getElementById("add-button");
-
+let taskList=[];
 
 addButton.addEventListener("click",addTask);
 
 function addTask(){
-console.log("clicked")
+    let task = {
+        id: randomIDGenerate,
+        taskContent: inputBox.value,
+        isComplete: false
+    }
+    taskList.push(task);
+    render();
+}
+
+
+function render(){
+    let resultHTML='';
+    for(let i = 0; i<taskList.length; i++){
+        resultHTML += 
+        `<div>
+        ${taskList[i]}
+        </div>
+        <div>
+        <button>Check</button>
+        <button>Delete</button>
+        </div>`
+    }
+
+    document.getElementById("task-board").innerHTML = resultHTML;
+}
+
+function randomIDGenerate(){
+    return '_' + Math.random().toString(36).substr(2, 9);
 }
