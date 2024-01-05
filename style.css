@@ -6,3 +6,7 @@
 .task-tabs div{
     padding: 1em
 }
+
+.task-done{
+    text-decoration: line-through;
+}

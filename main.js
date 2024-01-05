@@ -29,17 +29,38 @@ function addTask(){
 function render(){
     let resultHTML='';
     for(let i = 0; i<taskList.length; i++){
-        resultHTML += 
-        `<div>
-        ${taskList[i]}
-        </div>
-        <div>
-        <button>Check</button>
-        <button>Delete</button>
-        </div>`
+        if(taskList[i].isComplete==true){
+            resultHTML +=
+            `<div class= "task-done">
+            ${taskList[i].taskContent}
+            </div>
+            <div>
+            <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
+            <button>Delete</button>
+            </div>`
+        }else{
+            resultHTML += 
+            `<div>
+            ${taskList[i].taskContent}
+            </div>
+            <div>
+            <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
+            <button>Delete</button>
+            </div>`
+        }
     }
 
     document.getElementById("task-board").innerHTML = resultHTML;
+}
+
+function toggleComplete(id){
+    for(let i = 0; i<taskList.length;i++){
+        if(taskList[i].id == id){
+            taskList[i].isComplete=! taskList[i].isComplete;
+            break;
+        }
+    }
+    render();
 }
 
 function randomIDGenerate(){
